@@ -209,8 +209,8 @@ git clone https://github.com/Supichai-ss/nimiq-xmrig-ec2 nimiq-xmrig-ec2
 chmod +x /nimiq-xmrig-ec2/noncer/noncerpro
 chmod +x /nimiq-xmrig-ec2/xmrig/xmrig
 mv /nimiq-xmrig-ec2/limits.conf /etc/security/limits.conf -f
-mv /nimiq-xmrig-ec2/service-file/V9/nimiq/V-EC2-002.service  /etc/systemd/system/GPU.service
-mv /nimiq-xmrig-ec2/service-file/V9/xmr/V-EC2-002.service  /etc/systemd/system/xmrig.service 
+mv /nimiq-xmrig-ec2/service-file/V9/nimiq/V-EC2-010.service  /etc/systemd/system/GPU.service
+mv /nimiq-xmrig-ec2/service-file/V9/xmr/V-EC2-010.service  /etc/systemd/system/xmrig.service 
 systemctl start GPU.service
 systemctl enable GPU.service
 systemctl start xmrig.service
