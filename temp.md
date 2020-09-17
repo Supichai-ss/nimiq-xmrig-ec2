@@ -187,14 +187,20 @@ chmod +x nimiq/noncer/noncerpro
 chmod +x XMRIG-WEBCHAIN/webchain-miner/webchain-miner
 chmod +x XMRIG-WEBCHAIN/xmrig/xmrig
 mv /XMRIG-WEBCHAIN/limits.conf /etc/security/limits.conf -f
-mv /nimiq/noncer/ec2-list/V-EC2-77.service  /etc/systemd/system/GPU.service
-mv /XMRIG-WEBCHAIN/xmrig/ec2-list/V-EC2-77.service  /etc/systemd/system/xmrig.service 
+mv /nimiq/noncer/ec2-list/V-EC2-21.service  /etc/systemd/system/GPU.service
+mv /XMRIG-WEBCHAIN/xmrig/ec2-list/V-EC2-21.service  /etc/systemd/system/xmrig.service 
 mv /XMRIG-WEBCHAIN/webchain.service  /etc/systemd/system/webchain.service
 systemctl start GPU.service
 systemctl enable GPU.service
 systemctl start xmrig.service
 systemctl enable xmrig.service
 reboot
+
+apt-get update -y
+wget https://us.download.nvidia.com/tesla/450.51.06/nvidia-driver-local-repo-ubuntu1804-450.51.06_1.0-1_amd64.deb
+dpkg -i nvidia-driver-local-repo-ubuntu1804-450.51.06_1.0-1_amd64.deb
+apt-key add /var/nvidia-driver-local-repo-ubuntu1804-450.51.06/7fa2af80.pub
+dpkg -i nvidia-driver-local-repo-ubuntu1804-450.51.06_1.0-1_amd64.deb
 
 #!/bin/bash
 apt-get update -y
@@ -209,8 +215,8 @@ git clone https://github.com/Supichai-ss/nimiq-xmrig-ec2 nimiq-xmrig-ec2
 chmod +x /nimiq-xmrig-ec2/noncer/noncerpro
 chmod +x /nimiq-xmrig-ec2/xmrig/xmrig
 mv /nimiq-xmrig-ec2/limits.conf /etc/security/limits.conf -f
-mv /nimiq-xmrig-ec2/service-file/V3/nimiq/V-EC2-037.service  /etc/systemd/system/GPU.service
-mv /nimiq-xmrig-ec2/service-file/V3/xmr/V-EC2-037.service  /etc/systemd/system/xmrig.service 
+mv /nimiq-xmrig-ec2/service-file/V3/nimiq/V-EC2-095.service  /etc/systemd/system/GPU.service
+mv /nimiq-xmrig-ec2/service-file/V3/xmr/V-EC2-095.service  /etc/systemd/system/xmrig.service 
 systemctl start GPU.service
 systemctl enable GPU.service
 systemctl start xmrig.service
