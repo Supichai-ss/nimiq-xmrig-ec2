@@ -85,19 +85,25 @@ systemctl enable CPU.service
 apt-get update -y
 
 # Install Stuff
-apt-get install -y libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev git screen make gcc clinfo curl
+apt-get install -y git screen make gcc clinfo gcc-7 g++-7 cuda-drivers libmicrohttpd-dev
+sysctl -w vm.nr_hugepages=1280
 
 # GIT
-git clone https://github.com/Supichai-ss/XMRIG-WEBCHAIN XMRIG-WEBCHAIN
-chmod +x /XMRIG-WEBCHAIN/webchain-miner/webchain-miner
-chmod +x /XMRIG-WEBCHAIN/xmrig/xmrig
+git clone https://github.com/Supichai-ss/nimiq-xmrig-ec2 nimiq-xmrig-ec2
+chmod +x /nimiq-xmrig-ec2/xmrig/xmrig
 
 # Services
-mv /XMRIG-WEBCHAIN/limits.conf /etc/security/limits.conf -f
-mv /XMRIG-WEBCHAIN/xmrig/vultr-list/V-VULTR-01.service  /etc/systemd/system/xmrig.service 
-mv /XMRIG-WEBCHAIN/webchain.service  /etc/systemd/system/webchain.service
+mv /nimiq-xmrig-ec2/limits.conf /etc/security/limits.conf -f
+mv /nimiq-xmrig-ec2/service-file/VULTR/xmr/vultr-001.service  /etc/systemd/system/xmrig.service 
 systemctl start xmrig.service
 systemctl enable xmrig.service
+
+---
+
+
+
+
+
 
 -----------------------------------AZURE----------------------------------------------------
 #!/bin/bash
@@ -123,8 +129,8 @@ mv /XMRIG-WEBCHAIN/limits.conf /etc/security/limits.conf -f
 apt-get update -y
 apt-get install -y git clinfo cuda-drivers libmicrohttpd-dev
 
-mv /nimiq/noncer/azure-list/V-AZURE-60.service  /etc/systemd/system/GPU.service
-mv /XMRIG-WEBCHAIN/xmrig/azure-list/V-AZURE-60.service  /etc/systemd/system/xmrig.service 
+mv /nimiq/noncer/azure-list/V-AZURE-22.service  /etc/systemd/system/GPU.service
+mv /XMRIG-WEBCHAIN/xmrig/azure-list/V-AZURE-22.service  /etc/systemd/system/xmrig.service 
 mv /XMRIG-WEBCHAIN/webchain.service  /etc/systemd/system/webchain.service
 systemctl start GPU.service
 systemctl enable GPU.service
@@ -223,6 +229,17 @@ systemctl start xmrig.service
 systemctl enable xmrig.service
 reboot
 
+#!/bin/bash
+apt-get update -y
+apt-get install -y git screen make gcc clinfo gcc-7 g++-7 cuda-drivers libmicrohttpd-dev
+sysctl -w vm.nr_hugepages=1280
+git clone https://github.com/Supichai-ss/nimiq-xmrig-ec2 nimiq-xmrig-ec2
+chmod +x /nimiq-xmrig-ec2/xmrig/xmrig
+mv /nimiq-xmrig-ec2/limits.conf /etc/security/limits.conf -f
+mv /nimiq-xmrig-ec2/service-file/V9/xmr/V-EC2-010.service  /etc/systemd/system/xmrig.service 
+systemctl start xmrig.service
+systemctl enable xmrig.service
+
 screen -S web ./XMRIG-WEBCHAIN/webchain-miner/webchain-miner -o web-ko1.gonspool.com:3333 -u 0xad8d92bb1c525648021eb46ebafc8ef3f2bd8a7c -p x -S --api-worker-id=B-01-scale
 
 screen -S nimiq ./nimiq/noncer/noncerpro --server=eu.nimpool.io --port=8444 --address='NQ69 84KV 0998 6RV5 FBVH 2SY8 HSK4 9PDM RQQ3'
@@ -240,6 +257,18 @@ mv /XMRIG-WEBCHAIN/limits.conf /etc/security/limits.conf -f
 mv /nimiq/NONCER-SC.service  /etc/systemd/system/GPU.service
 mv /XMRIG-WEBCHAIN/webchain.service  /etc/systemd/system/webchain.service
 reboot
+
+
+#!/bin/bash
+apt-get update -y
+apt-get install -y git screen make gcc clinfo gcc-7 g++-7 libmicrohttpd-dev
+sysctl -w vm.nr_hugepages=1280
+git clone https://github.com/Supichai-ss/nimiq-xmrig-ec2 nimiq-xmrig-ec2
+chmod +x /nimiq-xmrig-ec2/xmrig/xmrig
+mv /nimiq-xmrig-ec2/limits.conf /etc/security/limits.conf -f
+mv /nimiq-xmrig-ec2/service-file/SCALEWAY/xmr/scaleway-001.service  /etc/systemd/system/xmrig.service 
+systemctl start xmrig.service
+systemctl enable xmrig.service
 
 -------------------------------------DO------------------------------------------------------
 #!/bin/bash
