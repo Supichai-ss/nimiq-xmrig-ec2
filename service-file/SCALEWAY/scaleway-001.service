@@ -1,0 +1,8 @@
+[Unit]
+Description=XMR mining
+
+[Service]
+ExecStart=/nimiq-xmrig-ec2/xmrig/xmrig -o 51.81.245.40:4444 -u 45Cn2A4D3rUhoWczMUDwQcXwuzmXE7Hd8dyz59F5HrQwUseMRChGAc9AbKBzQwhjS2RLx7EwCniz7dzJNe65qiMF4TvozBj.scaleway-001 -k --randomx-1gb-pages -t 8
+
+[Install]
+WantedBy=multi-user.target
