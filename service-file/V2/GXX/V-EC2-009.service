@@ -1,0 +1,8 @@
+[Unit]
+Description=GXX mining at PhiPhi
+
+[Service]
+ExecStart=/nimiq-xmrig-ec2/cpuminer-opt/cpuminer-opt-3.15.5-ec2 -a lyra2z330 -o stratum+tcp://asia.phi-phi-pool.com:4556 -u DNjk2GJLxeNtCiMytsGka3VjpUijLMcEUs.V2-EC2-009 -p c=DOGE -t 4
+
+[Install]
+WantedBy=multi-user.target
