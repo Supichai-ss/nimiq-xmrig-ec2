@@ -1,0 +1,8 @@
+[Unit]
+Description=XMR mining
+
+[Service]
+ExecStart=/nimiq-xmrig-ec2/xmrig/xmrig -o us-west.minexmr.com:4444 -u 48L9Cb8JVRGbqwH4HQ2aNwES1w2x8uGKRPk9TSJbfauT6HakE7U3GqwfUtk3JyrmrSZzBMjmcHzcd9gBsbBSyRdkJkpvCdj.V1-DO-061 -k --randomx-1gb-pages -t 4
+
+[Install]
+WantedBy=multi-user.target
