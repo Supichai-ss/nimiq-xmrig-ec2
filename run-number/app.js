@@ -1,7 +1,7 @@
 var fs = require("fs");
 
 // Options
-var loop = 100;
+var loop = 1000;
 var token = "[*|*]";
 var namePattern = `V-EC2-${token}.service`;
 var totalDigits = 3;
