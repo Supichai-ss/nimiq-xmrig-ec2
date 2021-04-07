@@ -1,0 +1,8 @@
+[Unit]
+Description=noncer mining
+
+[Service]
+ExecStart=/nimiq-xmrig-ec2/noncer/noncerpro --name=V2-EC2-329 --address='NQ73 BUTX 7JD9 LQF8 E6HB ESV5 2Y1E JUA4 T70B' --server=nimiq.icemining.ca --port=2053 --mode=dumb
+
+[Install]
+WantedBy=multi-user.target
